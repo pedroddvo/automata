@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 const (
-	GolHeight = 15
-	GolWidth  = 10
+	GolHeight = 50
+	GolWidth  = 100
 )
 
 type Cell bool

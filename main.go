@@ -31,7 +31,7 @@ func main() {
 
 	for {
 		rand.Seed(rand.Int63())
-		for i := 0; i < 20; i++ {
+		for i := 0; i < (GolHeight * GolWidth); i++ {
 			*board.Cell(rand.Intn(GolWidth), rand.Intn(GolHeight)) = true
 		}
 
@@ -40,12 +40,18 @@ func main() {
 			board.Step()
 			board.Draw()
 
-			r, _, err := reader.ReadRune()
+			r, err := reader.ReadString('\n')
 			if err != nil {
 				panic(err)
 			}
-			if r == 'n' {
+			if r[0] == 'n' {
 				break
+			}
+		}
+
+		for j := 0; j < GolHeight; j++ {
+			for i := 0; i < GolWidth; i++ {
+				*board.Cell(i, j) = false
 			}
 		}
 	}
