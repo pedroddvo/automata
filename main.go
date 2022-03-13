@@ -31,7 +31,7 @@ func main() {
 
 	for {
 		rand.Seed(rand.Int63())
-		for i := 0; i < rand.Intn(20); i++ {
+		for i := 0; i < 20; i++ {
 			*board.Cell(rand.Intn(GolWidth), rand.Intn(GolHeight)) = true
 		}
 
